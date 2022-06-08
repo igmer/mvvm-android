@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_sales">
+
+    <fragment
+        android:id="@+id/navigation_sales"
+        android:name="com.igmer.mancustomer.ui.home.SalesFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_sales" />
+
+    <fragment
+        android:id="@+id/navigation_payment"
+        android:name="com.igmer.mancustomer.ui.dashboard.PaymentFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_payment" />
+
+    <fragment
+        android:id="@+id/navigation_customer"
+        android:name="com.igmer.mancustomer.ui.notifications.CustomerFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_customer" />
+    <fragment
+        android:id="@+id/navigation_products"
+        android:name="com.igmer.mancustomer.ui.product.ProductsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_products" />
+</navigation>
