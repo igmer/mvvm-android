@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/login_button_bk.xml" value="0.2085" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/dialog_add_shopping_item.xml" value="0.1824074074074074" />
         <entry key="app/src/main/res/layout/fragment_customer.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_payment.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/fragment_products.xml" value="0.19610507246376813" />
@@ -21,5 +22,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1824074074074074" />
+      </ProjectState>
+    </option>
   </component>
 </project>

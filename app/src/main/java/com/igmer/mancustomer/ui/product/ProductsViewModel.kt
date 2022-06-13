@@ -2,26 +2,39 @@ package com.igmer.mancustomer.ui.product
 
 import android.app.Application
 import androidx.lifecycle.*
-import androidx.room.RoomDatabase
 import com.igmer.mancustomer.data.RoomDatabaseLocal
-import com.igmer.mancustomer.data.repository.ProductRepository
+import com.igmer.mancustomer.repository.ProductRepository
 import com.igmer.mancustomer.models.Product
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProductsViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository: ProductRepository
-     val allProducts = MutableLiveData<List<Product>>()
-
+@HiltViewModel
+class ProductsViewModel @Inject constructor(private val productRepository: ProductRepository) :
+    ViewModel() {
+    private var allProducts: MutableLiveData<List<Product>> = MutableLiveData()
+    val isLoading = MutableLiveData<Boolean>()
     init {
-        val productoDao = RoomDatabaseLocal.getDatabase(application).productDao()
-        repository = ProductRepository(productoDao)
-        allProducts.postValue(repository.getAllProducts())
-
+        getAllProducts()
     }
 
-    fun insert(product: Product)  = viewModelScope.launch(Dispatchers.IO) {
-        repository.insertProduct(product)
+    fun getAllProductsObserver(): MutableLiveData<List<Product>> {
+        return allProducts
+    }
+
+    fun getAllProducts() {
+        val products = productRepository.getAllProducts()
+        allProducts.postValue(products)
+        isLoading.postValue(false)
+    }
+
+    fun insertProduct(product: Product) {
+        isLoading.postValue(true)
+        productRepository.insertProduct(product)
+        getAllProducts()
+        isLoading.postValue(false)
+
     }
 
 }

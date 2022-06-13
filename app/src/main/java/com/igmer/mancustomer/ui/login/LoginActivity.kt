@@ -3,7 +3,7 @@ package com.igmer.mancustomer.ui.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.igmer.mancustomer.MainActivity
+import com.igmer.mancustomer.ui.MainActivity
 import com.igmer.mancustomer.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {

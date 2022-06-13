@@ -1,4 +1,4 @@
-package com.igmer.mancustomer
+package com.igmer.mancustomer.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,8 +7,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.igmer.mancustomer.R
 import com.igmer.mancustomer.databinding.ActivityMainBinding
-
+import dagger.hilt.android.AndroidEntryPoint
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -26,7 +28,10 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_sales, R.id.navigation_payment, R.id.navigation_customer, R.id.navigation_products
+                R.id.navigation_sales,
+                R.id.navigation_payment,
+                R.id.navigation_customer,
+                R.id.navigation_products
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

@@ -1,28 +1,27 @@
 package com.igmer.mancustomer.ui.product
 
-import android.app.Application
+import androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.igmer.mancustomer.adapters.AdapterProducts
 import com.igmer.mancustomer.databinding.FragmentProductsBinding
+import com.igmer.mancustomer.interfaces.AddDialogListener
 import com.igmer.mancustomer.models.Product
+import com.igmer.mancustomer.ui.dialogs.AddShoppingItemDialog
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProductsFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: ProductsViewModel
+    private  val productsViewModel: ProductsViewModel by viewModels()
     private var _binding: FragmentProductsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
     private lateinit var productAdapter: AdapterProducts
 
@@ -31,37 +30,42 @@ class ProductsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-         notificationsViewModel =
-            ViewModelProvider(requireActivity()).get(ProductsViewModel::class.java)
-
         _binding = FragmentProductsBinding.inflate(inflater, container, false)
+        setupRecyclerView()
+        productsViewModel.getAllProductsObserver().observe(viewLifecycleOwner) {
+            productAdapter.setProducts(it as ArrayList<Product>)
+            productAdapter.notifyDataSetChanged()
+        }
+        productsViewModel.isLoading.observe(viewLifecycleOwner) {
+            println(it)
+            binding.loading.isVisible = it
+        }
         val root: View = binding.root
 
         val fabAddProduct = binding.fabAddProduct
-        setupRecyclerView()
-        setAllProducts()
 
         fabAddProduct.setOnClickListener {
-            notificationsViewModel.insert(Product("Descripcion", 12.2, 1.0, "Modelo", "Color"))
+            AddShoppingItemDialog(
+                object : AddDialogListener {
+                    override fun onAddButtonClicked(item: Product) {
+                        productsViewModel.insertProduct(item)
+                    }
+                }
+            ).show(childFragmentManager, "AddShoppingItemDialog")
         }
         return root
     }
-    private fun getAllProducts(): MutableLiveData<List<Product>> {
-        return notificationsViewModel.allProducts
-    }
+
 
     private fun setupRecyclerView() {
         productAdapter = AdapterProducts()
         binding.rvProducts.apply {
             layoutManager = LinearLayoutManager(context)
+            productAdapter = AdapterProducts()
             adapter = productAdapter
+            val divider = DividerItemDecoration(context, VERTICAL)
+            addItemDecoration(divider)
         }
-    }
-    private fun setAllProducts(){
-        val products = getAllProducts()
-        products.observe(viewLifecycleOwner, Observer { products ->
-            productAdapter.setProducts(products)
-        })
     }
 
     override fun onDestroyView() {

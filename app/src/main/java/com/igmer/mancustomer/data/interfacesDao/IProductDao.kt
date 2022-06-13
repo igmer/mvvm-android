@@ -11,8 +11,8 @@ import com.igmer.mancustomer.models.Product
 interface IProductDao {
     @Query("SELECT * FROM product")
     fun getAllProducts(): List<Product>
-    @Query("SELECT * FROM product WHERE id = :id")
-    fun getProductById(id: Int): LiveData<Product>
+    @Query("SELECT * FROM product WHERE id = :id order by id DESC")
+   suspend fun getProductById(id: Int):Product
     @Insert
     fun insertProduct(product: Product) : Long
 }

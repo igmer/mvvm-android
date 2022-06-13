@@ -10,7 +10,7 @@ import com.igmer.mancustomer.models.Product
 
 class AdapterProducts() : RecyclerView.Adapter<AdapterProducts.ViewHolder>() {
     private lateinit var context: Context
-    private var products = mutableListOf<Product>()
+    private  var products= ArrayList<Product>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
         val view = View.inflate(context, R.layout.item_product, null)
@@ -28,15 +28,10 @@ class AdapterProducts() : RecyclerView.Adapter<AdapterProducts.ViewHolder>() {
             binding.tvProductName.text = product.name
         }
     }
-    fun add(product: Product) {
-        products.add(product)
-        notifyItemInserted(products.size - 1)
-    }
 
-    fun setProducts(productos: List<Product>) {
-        productos.forEach {
-            products.add(it)
-        }
+
+    fun setProducts(productos: ArrayList<Product>) {
+        products = productos
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
