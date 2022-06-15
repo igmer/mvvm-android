@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
@@ -27,35 +28,33 @@ class AddShoppingItemDialog(private val addDialogListener: AddDialogListener) :
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
-            val inflater = requireActivity().layoutInflater;
+            val inflater = requireActivity().layoutInflater
+            isCancelable = false
             binding =
                 DataBindingUtil.inflate(inflater, R.layout.dialog_add_shopping_item, null, false)
+            binding.save.setOnClickListener(View.OnClickListener {
+                if (validateField()) {
+                    val name = binding.name.text.toString()
+                    val purchasePrice = binding.purchasePrice.text.toString()
+                    val salePrice = binding.salePrice.text.toString()
+                    val description = binding.description.text.toString()
+                    val stock = binding.stock.text.toString()
+                    val product = Product(
+                        0,
+                        name,
+                        purchasePrice.toDouble(),
+                        salePrice.toDouble(),
+                        description,
+                        null,
+                        stock.toInt()
+                    )
+                    addDialogListener.onAddButtonClicked(product)
+                    dismiss()
+                }
+            })
             builder.setView(binding.root)
-            builder.setMessage(R.string.action_sign_in)
-                .setPositiveButton(R.string.add) { _, _ ->
-                    if (validateField()) {
-                        val name = binding.name.text.toString()
-                        val purchasePrice = binding.purchasePrice.text.toString()
-                        val salePrice = binding.salePrice.text.toString()
-                        val purchase_price = binding.purchasePrice.text.toString()
-                        val description = binding.description.text.toString()
-                        val stock = binding.stock.text.toString()
-                        val product = Product(
-                            0,
-                            name,
-                            purchasePrice.toDouble(),
-                            salePrice.toDouble(),
-                            purchase_price,
-                            description,
-                            stock.toInt()
-                        )
-                        addDialogListener.onAddButtonClicked(product)
-                        dismiss()
-                    }
-                }
-                .setNegativeButton(R.string.cancel) { dialog, _ ->
-                    dialog.dismiss()
-                }
+            builder.setMessage(R.string.add_product)
+                .setCancelable(false)
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }

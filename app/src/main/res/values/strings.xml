@@ -31,9 +31,11 @@
     <string name="product_name">Nombre de producto</string>
     <string name="product_price">Precio</string>
     <string name="cancel">Cancelar</string>
-    <string name="purchase_price">Precio de compra</string>
-    <string name="sale_price">Precio de venta</string>
-    <string name="description">Descripción</string>
-    <string name="stock">Stock (Inventario)</string>
+    <string name="purchase_price">Precio de compra:</string>
+    <string name="sale_price">Precio de venta: </string>
+    <string name="description">Descripción:</string>
+    <string name="stock">Stock (Inventario): </string>
     <string name="error_field_required">Valor es requerido</string>
+    <string name="image_des">Descripción de imagen</string>
+    <string name="image_des_ic_share">Compartir</string>
 </resources>

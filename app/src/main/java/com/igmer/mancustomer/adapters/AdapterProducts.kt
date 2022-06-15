@@ -25,7 +25,7 @@ class AdapterProducts() : RecyclerView.Adapter<AdapterProducts.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = products[position]
         with(holder) {
-            binding.tvProductName.text = product.name
+            binding.product = product
         }
     }
 

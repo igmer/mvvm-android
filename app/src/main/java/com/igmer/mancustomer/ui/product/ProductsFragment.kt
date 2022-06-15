@@ -37,7 +37,6 @@ class ProductsFragment : Fragment() {
             productAdapter.notifyDataSetChanged()
         }
         productsViewModel.isLoading.observe(viewLifecycleOwner) {
-            println(it)
             binding.loading.isVisible = it
         }
         val root: View = binding.root

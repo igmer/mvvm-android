@@ -4,11 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable type="com.igmer.mancustomer.models.Product"
-            name="product">
-
-        </variable>
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,12 +23,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/name"
-                android:text="@{product.name}"
+                android:text=""
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:errorEnabled="true"
-                app:helperText="Required"
-                app:helperTextTextColor="@color/design_default_color_error"/>
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -48,7 +41,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/purchase_price"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -56,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:hint="@string/sale_price"
             app:layout_constraintTop_toBottomOf="@+id/tlPrice"
             tools:layout_editor_absoluteX="16dp">
 
@@ -63,7 +58,7 @@
                 android:id="@+id/sale_price"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/sale_price" />
+                android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -71,6 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:hint="@string/description"
             app:layout_constraintTop_toBottomOf="@+id/tlSalesPrice"
             tools:layout_editor_absoluteX="16dp">
 
@@ -78,7 +74,7 @@
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/description" />
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -87,13 +83,22 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
             android:layout_marginTop="16dp"
+            android:hint="@string/stock"
             tools:layout_editor_absoluteX="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/stock"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/stock" />
+                 />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="save"
+            app:layout_constraintTop_toBottomOf="@+id/tlStock"
+            tools:layout_editor_absoluteX="16dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
