@@ -1,37 +1,26 @@
 package com.igmer.mancustomer.ui.dialogs
 
 import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
-import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatDialog
-import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.DialogFragment
 import com.igmer.mancustomer.R
-import com.igmer.mancustomer.databinding.DialogAddShoppingItemBinding
+import com.igmer.mancustomer.databinding.DialogAddProductItemBinding
 import com.igmer.mancustomer.interfaces.AddDialogListener
 import com.igmer.mancustomer.models.Product
 
-class AddShoppingItemDialog(private val addDialogListener: AddDialogListener) :
+class AddProductItemDialog(private val addDialogListener: AddDialogListener) :
     DialogFragment() {
-    lateinit var binding: DialogAddShoppingItemBinding
+    lateinit var binding: DialogAddProductItemBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             val inflater = requireActivity().layoutInflater
-            isCancelable = false
             binding =
-                DataBindingUtil.inflate(inflater, R.layout.dialog_add_shopping_item, null, false)
+                DataBindingUtil.inflate(inflater, R.layout.dialog_add_product_item, null, false)
             binding.save.setOnClickListener(View.OnClickListener {
                 if (validateField()) {
                     val name = binding.name.text.toString()

@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/IgmerRodriguezCastro/AndroidStudioProjects/mvvm-android/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/Users/IgmerRodriguezCastro/AndroidStudioProjects/mvvm-android/app/src/main/res/layout/dialog_add_customer_item.xml" value="0.3625" />
+        <entry key="..\:/Users/IgmerRodriguezCastro/AndroidStudioProjects/mvvm-android/app/src/main/res/layout/dialog_add_product_item.xml" value="0.3625" />
+        <entry key="..\:/Users/IgmerRodriguezCastro/AndroidStudioProjects/mvvm-android/app/src/main/res/layout/dialog_add_shopping_item.xml" value="0.3625" />
+        <entry key="..\:/Users/IgmerRodriguezCastro/AndroidStudioProjects/mvvm-android/app/src/main/res/layout/fragment_customer.xml" value="0.3452685421994885" />
+        <entry key="..\:/Users/IgmerRodriguezCastro/AndroidStudioProjects/mvvm-android/app/src/main/res/layout/fragment_products.xml" value="0.3625" />
+        <entry key="..\:/Users/IgmerRodriguezCastro/AndroidStudioProjects/mvvm-android/app/src/main/res/layout/fragment_sale.xml" value="0.3625" />
+        <entry key="..\:/Users/IgmerRodriguezCastro/AndroidStudioProjects/mvvm-android/app/src/main/res/layout/fragment_sales.xml" value="0.3625" />
+        <entry key="..\:/Users/IgmerRodriguezCastro/AndroidStudioProjects/mvvm-android/app/src/main/res/layout/item_costumer.xml" value="0.3625" />
+        <entry key="..\:/Users/IgmerRodriguezCastro/AndroidStudioProjects/mvvm-android/app/src/main/res/layout/item_product.xml" value="0.3625" />
+        <entry key="..\:/Users/IgmerRodriguezCastro/AndroidStudioProjects/mvvm-android/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3625" />
         <entry key="app/src/main/res/drawable/login_button_bk.xml" value="0.2085" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />

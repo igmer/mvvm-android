@@ -1,8 +1,11 @@
 package com.igmer.mancustomer.ui
 
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -14,6 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +25,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
-
+         navView = binding.navView
+        // ocupar el menu de la barra de navegacion
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -34,7 +38,26 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_products
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener{_,destination,_ ->
+            when(destination.id){
+                R.id.navigation_sales-> showBottomNavigation()
+                R.id.navigation_customer-> showBottomNavigation()
+                R.id.navigation_products-> showBottomNavigation()
+                R.id.navigation_payment-> showBottomNavigation()
+                else-> hideBottomNavigation()
+            }
+        }
+       navView.setupWithNavController(
+           Navigation.findNavController(this, R.id.nav_host_fragment_activity_main)
+       )
     }
+
+    private fun hideBottomNavigation() {
+        navView.visibility = View.GONE
+    }
+
+    private fun showBottomNavigation() {
+        navView.visibility = View.VISIBLE
+    }
+
 }

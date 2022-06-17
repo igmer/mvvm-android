@@ -14,7 +14,7 @@ import javax.inject.Inject
 class ProductsViewModel @Inject constructor(private val productRepository: ProductRepository) :
     ViewModel() {
     private var allProducts: MutableLiveData<List<Product>> = MutableLiveData()
-    val isLoading = MutableLiveData<Boolean>()
+    val isLoading = MutableLiveData(true)
     init {
         getAllProducts()
     }
@@ -23,10 +23,12 @@ class ProductsViewModel @Inject constructor(private val productRepository: Produ
         return allProducts
     }
 
-    fun getAllProducts() {
+    private fun getAllProducts() {
+        isLoading.postValue(true)
         val products = productRepository.getAllProducts()
         allProducts.postValue(products)
         isLoading.postValue(false)
+
     }
 
     fun insertProduct(product: Product) {

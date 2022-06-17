@@ -38,4 +38,15 @@
     <string name="error_field_required">Valor es requerido</string>
     <string name="image_des">Descripción de imagen</string>
     <string name="image_des_ic_share">Compartir</string>
+    <string name="save">Guardar</string>
+    <string name="customer_name">Nombre:</string>
+    <string name="name">Nombre:</string>
+    <string name="phone">Telefono:</string>
+    <string name="address">Direccion</string>
+    <string name="email">Email</string>
+    <string name="product">Producto</string>
+    <string name="quantity">Cantidad</string>
+    <string name="credito">Credito</string>
+    <string name="efectivo">Efectivo</string>
+    <string name="parcial">Abono Parcial</string>
 </resources>

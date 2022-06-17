@@ -24,4 +24,7 @@ object RoomModule {
     @Singleton
     @Provides
     fun provideProductDao(db:RoomDatabaseLocal) = db.productDao()
+    @Singleton
+    @Provides
+    fun provideCustomerDao(db:RoomDatabaseLocal) = db.customerDao()
 }
