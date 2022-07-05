@@ -11,14 +11,23 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <TextView
+            android:id="@+id/tvCustomerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tlProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:hint="@string/product"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/tvCustomerName"
+            tools:layout_editor_absoluteX="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/idProduct"
@@ -27,136 +36,105 @@
                 android:text="" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tlQuantity"
+        <LinearLayout
+            android:id="@+id/llQuantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/quantity"
+            android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/tlProduct"
             tools:layout_editor_absoluteX="16dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/quantity"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="numberDecimal" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tlPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/sale_price"
-            app:layout_constraintTop_toBottomOf="@+id/tlQuantity"
-            tools:layout_editor_absoluteX="16dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/price"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="numberDecimal" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <LinearLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/tlPrice"
-            tools:layout_editor_absoluteX="16dp">
-
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tlQuantity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:hint="@string/quantity">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/credito"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/credito" />
-            </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tlPrice"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:hint="@string/unit_price"
+                app:layout_constraintTop_toBottomOf="@+id/tlQuantity"
+                tools:layout_editor_absoluteX="16dp">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/efectivo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/efectivo" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center">
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/parcial"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/parcial" />
-            </LinearLayout>
-
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/price"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
-
-        <com.google.android.material.chip.ChipGroup
+        <LinearLayout
+            android:id="@+id/llPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/save"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/llQuantity"
             tools:layout_editor_absoluteX="16dp">
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/uno"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tlDiscount"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/parcial" /><com.google.android.material.chip.Chip
-                android:id="@+id/qw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/parcial" /><com.google.android.material.chip.Chip
-                android:id="@+id/qwe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/parcial" /><com.google.android.material.chip.Chip
-                android:id="@+id/unqweqeo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/parcial" />
-        </com.google.android.material.chip.ChipGroup>
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:hint="@string/discount">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tlStock"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/stock"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-            tools:layout_editor_absoluteX="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/discoutnt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/stock"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="numberDecimal" />
-        </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tlTotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:hint="@string/total"
+                app:layout_constraintTop_toBottomOf="@+id/tlQuantity"
+                tools:layout_editor_absoluteX="16dp">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/total"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
         <Button
             android:id="@+id/save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_top"
-            android:text="@string/save"
-            app:layout_constraintTop_toBottomOf="@+id/tlStock"
+            android:text="@string/sale"
+            app:layout_constraintTop_toBottomOf="@+id/llPrice"
             tools:layout_editor_absoluteX="16dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/save" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

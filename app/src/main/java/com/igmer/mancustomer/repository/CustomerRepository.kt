@@ -12,7 +12,7 @@ class CustomerRepository @Inject constructor(private val dao: ICustomerDao) {
     fun getAllCustomer(): List<Customer> {
         return dao.getAllCustomers()
     }
-    suspend fun getCustomerById(id: Int) = dao.getCustomerById(id)
+     fun getCustomerById(id: Int) = dao.getCustomerById(id)
     fun insertCustomer(item: Customer) = dao.insertCustomer(item)
 
 }

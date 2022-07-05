@@ -9,9 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <!--colors for modern ui-->
     <color name="whiteTextColor">#fff</color>
-    <color name="primaryTextColor">#2661FA</color>
+    <color name="primaryTextColor">#02872F</color>
     <color name="loginBkColor">#f0f0f0</color>
-    <color name="primary">#2661FA</color>
+    <color name="primary">#02872F</color>
 
     <!--colros for card-->
     <color name="whiteCardColor">#fff</color>

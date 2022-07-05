@@ -3,32 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_sales">
+    app:startDestination="@+id/customerFragment">
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_sales"-->
+<!--        android:name="com.igmer.mancustomer.ui.home.SalesFragment"-->
+<!--        android:label="@string/title_home"-->
+<!--        tools:layout="@layout/fragment_sales" >-->
+<!--    </fragment>-->
+
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_payment"-->
+<!--        android:name="com.igmer.mancustomer.ui.dashboard.PaymentFragment"-->
+<!--        android:label="@string/title_dashboard"-->
+<!--        tools:layout="@layout/fragment_payment" >-->
+
+<!--    </fragment>-->
 
     <fragment
-        android:id="@+id/navigation_sales"
-        android:name="com.igmer.mancustomer.ui.home.SalesFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_sales" >
-        <action
-            android:id="@+id/action_sales_to_sales_detail"
-            app:destination="@id/saleDetailFragment" />
-    </fragment>
-
-
-    <fragment
-        android:id="@+id/navigation_payment"
-        android:name="com.igmer.mancustomer.ui.dashboard.PaymentFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_payment" >
-
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_customer"
+        android:id="@+id/customerFragment"
         android:name="com.igmer.mancustomer.ui.customer.CustomerFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_customer" />
+        tools:layout="@layout/fragment_customer">
+        <action
+            android:id="@+id/action_customer_to_admin"
+            app:destination="@id/adminCustomerFragment">
+            <argument
+                android:name="id"
+                app:argType="integer"
+                />
+        </action>
+
+    </fragment>
     <fragment
         android:id="@+id/navigation_products"
         android:name="com.igmer.mancustomer.ui.product.ProductsFragment"
@@ -40,4 +47,17 @@
         tools:layout="@layout/fragment_sale_detail"
         android:name="com.igmer.mancustomer.ui.sales.SaleDetailFragment"
         />
+    <fragment
+        android:id="@+id/adminCustomerFragment"
+        android:name="com.igmer.mancustomer.ui.customer.AdminCustomerFragment"
+        android:label="sales_detail"
+        tools:layout="@layout/admin_customer_fragment">
+        <action
+            android:id="@+id/action_admin_to_sale_detail"
+            app:destination="@+id/saleDetailFragment">
+            <argument
+                android:name="id"
+                app:argType="integer"/>
+        </action>
+    </fragment>
 </navigation>

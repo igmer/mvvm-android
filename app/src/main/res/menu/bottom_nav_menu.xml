@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
+  <!--  <item
         android:id="@+id/navigation_sales"
         android:icon="@drawable/ic_sale"
         android:title="@string/sales" />
@@ -9,10 +9,10 @@
     <item
         android:id="@+id/navigation_payment"
         android:icon="@drawable/ic_payment"
-        android:title="@string/pending_payment" />
+        android:title="@string/pending_payment" />-->
 
     <item
-        android:id="@+id/navigation_customer"
+        android:id="@+id/customerFragment"
         android:icon="@drawable/ic_customer"
         android:title="@string/custmomer" />
     <item

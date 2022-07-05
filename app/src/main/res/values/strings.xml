@@ -49,4 +49,12 @@
     <string name="credito">Credito</string>
     <string name="efectivo">Efectivo</string>
     <string name="parcial">Abono Parcial</string>
+    <string name="edit_customer">Editar</string>
+    <string name="sale">Vender</string>
+    <string name="report_sale">Historial de Ventas</string>
+    <string name="editar">Editar</string>
+    <string name="vender">Vender</string>
+    <string name="discount">Descuento (%)</string>
+    <string name="total">Total</string>
+    <string name="unit_price">Precio Unitario</string>
 </resources>

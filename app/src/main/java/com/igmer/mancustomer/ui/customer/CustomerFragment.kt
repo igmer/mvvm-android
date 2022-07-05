@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,9 +14,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.igmer.mancustomer.adapters.AdapterCustomer
 import com.igmer.mancustomer.databinding.FragmentCustomerBinding
 import com.igmer.mancustomer.interfaces.AddDialogListener
+import com.igmer.mancustomer.interfaces.GoToActivity
 import com.igmer.mancustomer.models.Customer
 import com.igmer.mancustomer.ui.dialogs.AddCustomerItemDialog
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.navigation.fragment.findNavController
+import com.igmer.mancustomer.R
 
 @AndroidEntryPoint
 class CustomerFragment : Fragment() {
@@ -55,10 +59,17 @@ class CustomerFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        customerAdapter = AdapterCustomer()
+
         binding.rv.apply {
             layoutManager = LinearLayoutManager(context)
-            customerAdapter = AdapterCustomer()
+            customerAdapter = AdapterCustomer(
+                object : GoToActivity {
+                    override fun goToActivity(id: Int) {
+                        val bundle = bundleOf("id" to id)
+                        findNavController().navigate(R.id.action_customer_to_admin, bundle)
+                    }
+                }
+            )
             adapter = customerAdapter
         }
     }

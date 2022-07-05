@@ -42,16 +42,12 @@ class SalesFragment : Fragment() {
         return root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
     private fun goToSaleDetailFragment(){
-        findNavController().navigate(R.id.action_sales_to_sales_detail)
+        //findNavController().navigate(R.id.action_sales_to_sales_detail)
 
     }
 }

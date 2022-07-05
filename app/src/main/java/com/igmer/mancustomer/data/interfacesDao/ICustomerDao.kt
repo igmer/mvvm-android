@@ -12,8 +12,8 @@ interface ICustomerDao {
     @Query("SELECT * FROM customer")
     fun getAllCustomers(): List<Customer>
 
-    @Query("SELECT * FROM customer WHERE id = :id order by id DESC")
-    suspend fun getCustomerById(id: Int): Customer
+    @Query("SELECT * FROM customer WHERE id = :id")
+     fun getCustomerById(id: Int): LiveData<Customer>
 
     @Insert
     fun insertCustomer(customer: Customer): Long

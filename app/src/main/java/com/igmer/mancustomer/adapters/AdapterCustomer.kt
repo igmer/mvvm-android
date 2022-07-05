@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.igmer.mancustomer.R
 import com.igmer.mancustomer.databinding.ItemCostumerBinding
+import com.igmer.mancustomer.interfaces.AddDialogListener
+import com.igmer.mancustomer.interfaces.GoToActivity
 import com.igmer.mancustomer.models.Customer
 
-class AdapterCustomer() : RecyclerView.Adapter<AdapterCustomer.ViewHolder>() {
+class AdapterCustomer(private val goToActivity: GoToActivity) : RecyclerView.Adapter<AdapterCustomer.ViewHolder>() {
     private lateinit var context: Context
     private  var customers= ArrayList<Customer>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,6 +28,9 @@ class AdapterCustomer() : RecyclerView.Adapter<AdapterCustomer.ViewHolder>() {
         val item = customers[position]
         with(holder) {
             binding.customer = item
+            binding.cardView.setOnClickListener {
+                goToActivity.goToActivity(item.id)
+            }
         }
     }
 
