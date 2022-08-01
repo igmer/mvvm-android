@@ -14,5 +14,6 @@ class CustomerRepository @Inject constructor(private val dao: ICustomerDao) {
     }
      fun getCustomerById(id: Int) = dao.getCustomerById(id)
     fun insertCustomer(item: Customer) = dao.insertCustomer(item)
+    fun searchProduct(name: String) = dao.searchProduct(name)
 
 }

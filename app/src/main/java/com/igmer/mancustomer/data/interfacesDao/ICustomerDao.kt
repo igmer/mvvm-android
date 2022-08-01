@@ -6,6 +6,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.igmer.mancustomer.models.Customer
+import com.igmer.mancustomer.models.Product
 
 @Dao
 interface ICustomerDao {
@@ -17,4 +18,7 @@ interface ICustomerDao {
 
     @Insert
     fun insertCustomer(customer: Customer): Long
+
+    @Query("SELECT * FROM product where name LIKE :name")
+    fun searchProduct(name: String): List<Product>
 }

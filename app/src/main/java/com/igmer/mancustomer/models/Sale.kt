@@ -5,7 +5,7 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 @Entity(tableName = "sales")
-data class Sale(@PrimaryKey val id: Int,
+data class Sale(@PrimaryKey(autoGenerate = true) val id: Int,
                 val quantity: Int,
                 val price: Double,
                 val date: String,
