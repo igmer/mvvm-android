@@ -60,7 +60,7 @@ class ProductsFragment : Fragment() {
 
 
     private fun setupRecyclerView() {
-    //set margin top for recycler view
+        //set margin top for recycler view
         binding.rvProducts.setPadding(
             0,
             resources.getDimensionPixelSize(R.dimen.margin_top_recycler_view),

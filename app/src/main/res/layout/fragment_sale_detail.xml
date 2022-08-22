@@ -6,8 +6,11 @@
     <data>
         <variable
             name="viewModel"
-            type="com.igmer.mancustomer.ui.sales.SaleDetailViewModel " />
+            type="com.igmer.mancustomer.ui.sales.SaleDetailViewModel" />
     </data>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -61,6 +64,7 @@
                     android:id="@+id/quantity"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:onTextChanged="@{(text, start, before, count) -> viewModel.onQuantityChanged(text)}"
                     android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -109,6 +113,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tlTotal"
                 android:layout_width="0dp"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
@@ -124,13 +129,29 @@
                     android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlSaleType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/RoundedAutocomplete"
+            android:layout_marginTop="16dp"
+            android:hint="@string/sale_type"
+            app:layout_constraintTop_toBottomOf="@+id/llPrice"
+            tools:layout_editor_absoluteX="16dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/typeSale"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_top"
             android:text="@string/sale"
-            app:layout_constraintTop_toBottomOf="@+id/llPrice"
+            app:layout_constraintTop_toBottomOf="@+id/tlSaleType"
             tools:layout_editor_absoluteX="16dp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -138,7 +159,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="96dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/save" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
 </layout>

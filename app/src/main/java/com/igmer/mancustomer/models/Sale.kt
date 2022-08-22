@@ -9,6 +9,8 @@ data class Sale(@PrimaryKey(autoGenerate = true) val id: Int,
                 val quantity: Int,
                 val price: Double,
                 val date: String,
+                val total: Double,
+                val discount: Double,
                 @ColumnInfo(name = "id_product")
                 val idProduct: Int,
                 @ColumnInfo(name = "id_customer")

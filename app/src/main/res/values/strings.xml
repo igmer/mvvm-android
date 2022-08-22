@@ -57,4 +57,12 @@
     <string name="discount">Descuento (%)</string>
     <string name="total">Total</string>
     <string name="unit_price">Precio Unitario</string>
+    <string name="sale_type">Tpo de venta</string>
+    <string name="contado">Contado</string>
+    <string name="acept">Aceptar</string>
+    <string name="confirm_sale">Confirmar la venta del producto por un total de: %s </string>
+    <string-array name="sales_types">
+        <item>@string/credito</item>
+        <item>@string/contado</item>
+    </string-array>
 </resources>

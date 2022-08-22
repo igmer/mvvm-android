@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11320754716981132" />
         <entry key="app/src/main/res/layout/admin_customer_fragment.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/custom_dialog.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/dialog_add_shopping_item.xml" value="0.1824074074074074" />
         <entry key="app/src/main/res/layout/fragment_customer.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_payment.xml" value="0.15520833333333334" />
@@ -14,6 +15,7 @@
         <entry key="app/src/main/res/layout/fragment_sale_detail.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/fragment_sales.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/item_product.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/item_sale.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/layout_register.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.15" />
       </map>

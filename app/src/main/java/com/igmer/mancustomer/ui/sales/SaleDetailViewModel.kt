@@ -1,6 +1,7 @@
 package com.igmer.mancustomer.ui.sales
 
 import android.text.BoringLayout
+import android.text.Editable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -19,19 +20,34 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SaleDetailViewModel @Inject constructor(private val repositoryCustomer: CustomerRepository,
-                                              private val repositoryProduct: ProductRepository,
+                                              repositoryProduct: ProductRepository,
                                               private val repositorySale: SaleRepository
 ) :
     ViewModel() {
     private lateinit var lvCustomer: LiveData<Customer>
+    private val allSale: MutableLiveData<List<Sale>> = MutableLiveData()
     var productList: LiveData<List<Product>> = repositoryProduct.getAllProductsLV()
 
+    fun getAllSaleObserver(): MutableLiveData<List<Sale>>{
+        return allSale
+    }
+    fun onQuantityChanged(text: CharSequence) {
+        // log text change events
+        println("onQuantityChanged: ${text.toString()}")
+
+
+    }
     fun getCustomerById(id: Int): LiveData<Customer> {
         lvCustomer = repositoryCustomer.getCustomerById(id)
         return lvCustomer
     }
-
-    fun savesale(sale: Sale) {
-        repositorySale.insert(sale)
+ fun getAllSaleByIdCustomerAndDate(id: Int, date: String){
+    val sales = repositorySale.getSalesByIdCustomerAndDate(id, date)
+    print(sales)
+    allSale.postValue(sales)
+}
+    fun savesale(sale: Sale,idCustomer: Int, today: String) : Long {
+        getAllSaleByIdCustomerAndDate(idCustomer,today)
+        return repositorySale.insert(sale)
     }
 }
