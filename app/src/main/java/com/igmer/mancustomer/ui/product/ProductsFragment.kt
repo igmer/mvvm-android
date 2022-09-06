@@ -36,6 +36,7 @@ class ProductsFragment : Fragment() {
         setupRecyclerView()
         productsViewModel.getAllProductsObserver().observe(viewLifecycleOwner) {
             productAdapter.setProducts(it as ArrayList<Product>)
+
             productAdapter.notifyDataSetChanged()
         }
         productsViewModel.isLoading.observe(viewLifecycleOwner) {

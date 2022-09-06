@@ -18,6 +18,7 @@ import com.igmer.mancustomer.databinding.AdminCustomerFragmentBinding
 import com.igmer.mancustomer.databinding.FragmentSaleDetailBinding
 import com.igmer.mancustomer.models.Product
 import com.igmer.mancustomer.models.Sale
+import com.igmer.mancustomer.models.embedded.SaleProduct
 import com.igmer.mancustomer.ui.MainActivity
 import com.igmer.mancustomer.ui.customer.CustomerViewModel
 import com.igmer.mancustomer.utils.AlertDialogCustom
@@ -56,7 +57,8 @@ class SaleDetailFragment : Fragment() {
             binding.tvCustomerName.text = it.name
         }
         viewModel.getAllSaleObserver().observe(viewLifecycleOwner){
-            saleAdapter.setProducts(it as ArrayList<Sale>)
+            saleAdapter.setProducts(it as ArrayList<SaleProduct>)
+            print("deberia cargas mas datos")
             saleAdapter.notifyDataSetChanged()
         }
 

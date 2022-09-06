@@ -9,10 +9,11 @@ import com.igmer.mancustomer.databinding.ItemProductBinding
 import com.igmer.mancustomer.databinding.ItemSaleBinding
 import com.igmer.mancustomer.models.Product
 import com.igmer.mancustomer.models.Sale
+import com.igmer.mancustomer.models.embedded.SaleProduct
 
 class AdapterSale() : RecyclerView.Adapter<AdapterSale.ViewHolder>() {
     private lateinit var context: Context
-    private  var sales= ArrayList<Sale>()
+    private  var sales= ArrayList<SaleProduct>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
         val view = View.inflate(context, R.layout.item_sale, null)
@@ -32,7 +33,7 @@ class AdapterSale() : RecyclerView.Adapter<AdapterSale.ViewHolder>() {
     }
 
 
-    fun setProducts(sale: ArrayList<Sale>) {
+    fun setProducts(sale: ArrayList<SaleProduct>) {
         sales = sale
     }
 

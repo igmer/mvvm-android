@@ -17,3 +17,4 @@ data class Sale(@PrimaryKey(autoGenerate = true) val id: Int,
                 val idCustomer: Int,
                 @ColumnInfo(name = "sale_type")
                 val saleType: String)
+

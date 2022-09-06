@@ -7,7 +7,7 @@
 
         <variable
             name="sale"
-            type="com.igmer.mancustomer.models.Sale" />
+            type="com.igmer.mancustomer.models.embedded.SaleProduct" />
     </data>
 
     <RelativeLayout
@@ -37,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="@{Integer.toString(sale.quantity)}"
+                    android:text="@{sale.product}"
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textStyle="bold" />
 
@@ -47,47 +47,56 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
                     android:maxLines="1"
-                    android:text="@{Integer.toString(sale.quantity)}" />
+                    android:text="@{sale.description}" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:text="@string/stock"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/amount"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                    <TextView
-                        android:id="@+id/stock"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/stock"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="@{Integer.toString(sale.quantity)}"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="@{Integer.toString(sale.quantity)}"/>
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/total"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="@{Double.toString(sale.total)}"/>
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:text="@string/sale_price"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    <TextView
-                        android:id="@+id/price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="@{Double.toString(sale.total)}"/>
-                </LinearLayout>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
